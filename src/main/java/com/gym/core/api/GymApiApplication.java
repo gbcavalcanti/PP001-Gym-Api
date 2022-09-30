@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GymApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GymApiApplication.class, args);
+		SpringApplication.run(GymApiApplication.class, args);		
 	}
 
 }
