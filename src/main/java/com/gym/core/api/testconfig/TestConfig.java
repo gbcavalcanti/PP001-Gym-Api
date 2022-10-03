@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.gym.core.api.entities.Adress;
 import com.gym.core.api.entities.Student;
 import com.gym.core.api.entities.Teacher;
 import com.gym.core.api.repositories.StudentRepository;
@@ -42,9 +43,17 @@ public class TestConfig implements CommandLineRunner {
 		
 		studentRepository.saveAll(Arrays.asList(s1,s2,s3));
 		
+		Adress a1 =  new Adress("av navegantes", "150", "803", "next to burguer king", s1);
+		Adress a2 =  new Adress("av josefa", "200", "305", "next to mac donalds", t1);
+		
 		s1.setTeacher(t3);
+		s1.setAdress(a1);
+		
+		t1.setAdress(a2);
 		
 		studentRepository.save(s1);
+		
+		teacherRepository.save(t1);
 		
 	}
 	

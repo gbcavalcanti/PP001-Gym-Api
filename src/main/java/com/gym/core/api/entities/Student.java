@@ -3,12 +3,14 @@ package com.gym.core.api.entities;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -30,17 +32,31 @@ public class Student implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "Teacher_id")
 	private Teacher teacher;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "adress_id")
+	private Adress adress;
 		
 	public Student() {
 
 	}
 
+	public Student(Long id, String name, LocalDate birthDate, String cpf , Adress adress) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.birthDate = birthDate;
+		this.cpf = cpf;
+		this.adress = adress;
+	}
+	
 	public Student(Long id, String name, LocalDate birthDate, String cpf) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.birthDate = birthDate;
 		this.cpf = cpf;
+	
 	}
 
 	public Long getId() {
@@ -82,5 +98,15 @@ public class Student implements Serializable {
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
+
+	public Adress getAdress() {
+		return adress;
+	}
+
+	public void setAdress(Adress adress) {
+		this.adress = adress;
+	}
+	
+	
 
 }
