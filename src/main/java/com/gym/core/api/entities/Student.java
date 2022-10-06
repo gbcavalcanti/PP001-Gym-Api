@@ -28,7 +28,7 @@ public class Student implements Serializable {
 	private LocalDate birthDate;
 	private String cpf;
 	
-	@JsonIgnore
+	@JsonIgnore	
 	@ManyToOne
 	@JoinColumn(name = "Teacher_id")
 	private Teacher teacher;

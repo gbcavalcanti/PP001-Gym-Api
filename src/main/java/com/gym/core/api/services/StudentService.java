@@ -24,5 +24,27 @@ public class StudentService {
 		
 	}
 	
+	public Student saveStudent(Student student) {
+		
+		return studentRepository.save(student);
+	}
+	
+	public void deleteStudent(Long id) {
+	Student student = studentRepository.findById(id).get();
+		studentRepository.delete(student);
+	}
+	
+	public Student updateStudent(Long id, Student student) {
+		
+		Student updatingStudent = studentRepository.findById(id).get();
+		updatingStudent.setName(student.getName());
+		updatingStudent.setBirthDate(student.getBirthDate());
+		updatingStudent.setCpf(student.getCpf());
+		updatingStudent.setTeacher(student.getTeacher());
+		updatingStudent.setAdress(student.getAdress());
+		Student updatedStudent = studentRepository.save(updatingStudent);
+		
+		return updatedStudent;
+	}
 	
 }
