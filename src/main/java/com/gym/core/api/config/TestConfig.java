@@ -1,4 +1,4 @@
-package com.gym.core.api.testconfig;
+package com.gym.core.api.config;
 
 import java.time.LocalDate;
 import java.util.Arrays;
